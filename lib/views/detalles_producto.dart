@@ -7,7 +7,7 @@ class ProductDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalles del Producto'),
+        title: const Text('Detalles del Productos'),
       ),
       body:  Padding(
   padding: EdgeInsets.all(16.0),
