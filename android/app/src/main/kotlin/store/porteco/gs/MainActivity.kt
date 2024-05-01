@@ -1,4 +1,4 @@
-package com.example.porteco
+package store.porteco.gs
 
 import io.flutter.embedding.android.FlutterActivity
 
