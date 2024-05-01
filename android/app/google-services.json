@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1098285269241",
+    "project_id": "porteco-c54ee",
+    "storage_bucket": "porteco-c54ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098285269241:android:95d9d5d91e18b9c365a228",
+        "android_client_info": {
+          "package_name": "store.porteco.gs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098285269241-f9vavmt01q5cp0vsvsi6lk2fj4dfbkpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-RQqRYbAY87Wc1AJu8qHMC8NLrdExWuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098285269241-f9vavmt01q5cp0vsvsi6lk2fj4dfbkpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
