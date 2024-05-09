@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  const ProductDetailsPage();
+  const ProductDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class ProductDetailsPage extends StatelessWidget {
         title: const Text('Detalles del Productos'),
       ),
       body:  Padding(
-  padding: EdgeInsets.all(16.0),
+  padding: const EdgeInsets.all(16.0),
   child: Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [

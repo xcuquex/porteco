@@ -9,7 +9,7 @@ class MotherBoardPage extends StatelessWidget {
         title: const Text('Placas madres'),
       ),
       body: const Center(
-        child: const Text('Contenido'),
+        child: Text('Contenido'),
       ),
     );
   }

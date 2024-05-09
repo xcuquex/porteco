@@ -9,7 +9,7 @@ class CaseComputerPage extends StatelessWidget {
         title: const Text('Case de computador'),
       ),
       body: const Center(
-        child: const Text('Contenido'),
+        child: Text('Contenido'),
       ),
     );
   }

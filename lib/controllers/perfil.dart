@@ -1,6 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'exports.dart';
+
 class PerfilPage extends StatelessWidget {
+  final User user;
+
+  const PerfilPage({required this.user});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,12 +18,12 @@ class PerfilPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/images/usuario.png'), // Agrega la ruta de la imagen de perfil del usuario
+                  backgroundImage: AssetImage('assets/images/usuario.png'),
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -41,7 +47,7 @@ class PerfilPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -62,16 +68,16 @@ class PerfilPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            const Text(
+            SizedBox(height: 20),
+            Text(
               'Compras Recientes',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 10),
-            Container(
+            SizedBox(height: 10),
+            SizedBox(
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -89,16 +95,35 @@ class PerfilPage extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Acción para el botón "Historial de compras"
               },
               child: const Text('Historial de compras'),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Cerrar sesión
+                _signOut(context);
+              },
+              child: const Text('Cerrar sesión'),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  // Método para cerrar sesión
+  void _signOut(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      // Navegar de regreso a la página de inicio o a la página de inicio de sesión
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    } catch (e) {
+      print('Error al cerrar sesión: $e');
+    }
   }
 }

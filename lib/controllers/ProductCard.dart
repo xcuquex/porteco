@@ -1,56 +1,65 @@
 import 'package:flutter/material.dart';
 import '../views/detalles_producto.dart';
+
 class ProductCard extends StatelessWidget {
   final Product product;
   final VoidCallback onTap;
 
-  const ProductCard({Key? key, required this.product, required this.onTap})
-      : super(key: key);
+  const ProductCard({
+    Key? key,
+    required this.product,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Card(
         elevation: 4,
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 120,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   product.imagePath,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                product.company,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.company,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    product.name,
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                  const SizedBox(height: 4),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ProductDetailsPage()),
+                      );
+                    },
+                    child: Text(
+                      '\$${product.price.toStringAsFixed(2)}',
+                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 4),
-              Text(
-                product.name,
-                style: const TextStyle(fontSize: 14),
-              ),
-              const SizedBox(height: 4),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ProductDetailsPage()),
-                  );
-                },
-                child: Text(
-                  '\$${product.price.toStringAsFixed(2)}',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(height: 4),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
