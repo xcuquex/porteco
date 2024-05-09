@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:porteco/views/export_views.dart';
+
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -74,15 +76,59 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _registerUser() async {
-    try {
-      await _auth.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
+  try {
+    await _auth.createUserWithEmailAndPassword(
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+    // Registro exitoso, puedes realizar acciones adicionales aquí
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Registro exitoso'),
+          content: Text('¡Tu cuenta ha sido registrada con éxito!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: Text('Aceptar'),
+            ),
+          ],
+        );
+      },
+    );
+  } catch (e) {
+    // Manejo de errores durante el registro
+    print('Error durante el registro: $e');
+    if (e is FirebaseAuthException) {
+      String errorMessage = 'Error durante el registro.';
+      if (e.code == 'email-already-in-use') {
+        errorMessage = 'El correo electrónico ya está en uso.';
+      }
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error de registro'),
+            content: Text(errorMessage),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Aceptar'),
+              ),
+            ],
+          );
+        },
       );
-      // Registro exitoso, puedes realizar acciones adicionales aquí
-    } catch (e) {
-      // Manejo de errores durante el registro
-      print('Error durante el registro: $e');
     }
   }
+}
+
 }
