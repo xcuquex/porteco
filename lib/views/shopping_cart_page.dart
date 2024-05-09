@@ -28,7 +28,7 @@ class ShoppingCartPage extends StatelessWidget {
                   width: 100,
                   height: 100,
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                   child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,10 +38,10 @@ class ShoppingCartPage extends StatelessWidget {
                       children: [
                         Text(
                         (producto['descripcion'] as String), // Conversión aquí
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                             ),
                             IconButton(
-                            icon: Icon(Icons.close), // Icono de X
+                            icon: const Icon(Icons.close), // Icono de X
                             onPressed: () {
                     // Acción al presionar el botón X
                             },

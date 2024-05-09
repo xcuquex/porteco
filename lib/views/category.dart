@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../controllers/category_end.dart';
-import 'case.dart';
+import 'package:porteco/controllers/exports.dart';
+import 'package:porteco/views/export_views.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});

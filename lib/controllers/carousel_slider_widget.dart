@@ -17,9 +17,9 @@ class CarouselSliderWidget extends StatelessWidget {
         viewportFraction: 0.8,
       ),
       items: [
-        'assets/images/slider.jpg',
-        'assets/images/slider_2.jpg',
-        'assets/images/slider_3.jpg',
+        '../../assets/images/slider.jpg',
+        '../../assets/images/slider_2.jpg',
+        '../../assets/images/slider_3.jpg',
       ].map((item) {
         return Builder(
           builder: (BuildContext context) {
