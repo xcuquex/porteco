@@ -5,7 +5,7 @@ import 'exports.dart';
 class PerfilPage extends StatelessWidget {
   final User user;
 
-  const PerfilPage({required this.user});
+  const PerfilPage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +21,25 @@ class PerfilPage extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('assets/images/usuario.png'),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Nombre de Usuario', // Agrega el nombre de usuario
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
-                      'correo@example.com', // Agrega el correo electrónico del usuario
-                      style: TextStyle(
+                      user.email!, // Utiliza el correo electrónico del usuario
+                      style: const TextStyle(
                         fontSize: 14,
                       ),
                     ),
@@ -47,7 +47,7 @@ class PerfilPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -68,15 +68,15 @@ class PerfilPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Compras Recientes',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             SizedBox(
               height: 200,
               child: ListView.builder(
@@ -95,14 +95,13 @@ class PerfilPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Acción para el botón "Historial de compras"
               },
               child: const Text('Historial de compras'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Cerrar sesión
