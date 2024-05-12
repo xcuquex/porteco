@@ -1,5 +1,1 @@
-<<<<<<< Updated upstream
-{"flutter":{"platforms":{"android":{"default":{"projectId":"porteco-c54ee","appId":"1:1098285269241:android:95d9d5d91e18b9c365a228","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"porteco-c54ee","configurations":{"android":"1:1098285269241:android:95d9d5d91e18b9c365a228","ios":"1:1098285269241:ios:427c3ea981c7517e65a228","macos":"1:1098285269241:ios:427c3ea981c7517e65a228","web":"1:1098285269241:web:f63a048e3333034f65a228","windows":"1:1098285269241:web:30616051a027654565a228"}}}}}}
-=======
 {"flutter":{"platforms":{"android":{"default":{"projectId":"porteco-c54ee","appId":"1:1098285269241:android:3d2ff8a91b3882b065a228","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"porteco-c54ee","configurations":{"android":"1:1098285269241:android:3d2ff8a91b3882b065a228","ios":"1:1098285269241:ios:427c3ea981c7517e65a228","macos":"1:1098285269241:ios:427c3ea981c7517e65a228","web":"1:1098285269241:web:f63a048e3333034f65a228","windows":"1:1098285269241:web:30616051a027654565a228"}}}}}}
->>>>>>> Stashed changes

@@ -5,7 +5,6 @@ import 'package:porteco/views/export_views.dart';
 
 import '../controllers/settings.dart';
 
-
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
 
@@ -13,25 +12,25 @@ class MainMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Product> products = [
       Product(
-        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png', 
+        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png',
         company: 'Company 1',
         name: 'Product 1',
         price: 19.99,
       ),
       Product(
-        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png', 
+        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png',
         company: 'Company 2',
         name: 'Product 2',
         price: 29.99,
       ),
       Product(
-        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png', 
+        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png',
         company: 'Company 3',
         name: 'Product 3',
         price: 39.99,
       ),
       Product(
-        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png', 
+        imagePath: '../../assets/images/tarjetas_de_video/rtx-2060.png',
         company: 'Company 4',
         name: 'Product 4',
         price: 39.99,
@@ -48,7 +47,59 @@ class MainMenu extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       drawer: Drawer(
-        // Contenido del drawer
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('../../assets/images/logo.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: null,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Buscar categorías',
+                  prefixIcon: Icon(Icons.search),
+                ),
+                onChanged: (value) {
+                  // Implementa la lógica de búsqueda de categorías aquí
+                },
+              ),
+            ),
+            ListTile(
+              title: Text('Procesador'),
+              onTap: () {
+                // Acción al seleccionar la opción "Procesador"
+              },
+            ),
+            ListTile(
+              title: Text('Placa Madre'),
+              onTap: () {
+                // Acción al seleccionar la opción "Placa Madre"
+              },
+            ),
+            ListTile(
+              title: Text('Tarjeta de Video'),
+              onTap: () {
+                // Acción al seleccionar la opción "Tarjeta de Video"
+              },
+            ),
+            ListTile(
+              title: Text('Categorías'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CategoriesScreen()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

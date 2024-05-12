@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:porteco/views/export_views.dart'; 
-export 'package:porteco/controllers/exports.dart';
-// Importa la página de registro
+import 'package:porteco/controllers/perfil.dart';
+import 'package:porteco/views/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -27,9 +26,25 @@ class LoginPage extends StatelessWidget {
         MaterialPageRoute(builder: (context) => PerfilPage(user: userCredential.user!)),
       );
     } catch (e) {
-      // Manejar el error en caso de que el inicio de sesión falle
-      print('Error al iniciar sesión: $e');
-      // Puedes mostrar un mensaje de error al usuario si lo deseas
+      // Mostrar un mensaje de error utilizando un AlertDialog
+      String errorMessage = 'Correo o contraseña incorrectos.';
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error al iniciar sesión'),
+            content: Text(errorMessage),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Aceptar'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
